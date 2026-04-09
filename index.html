@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cachaça da Xepa</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+:root{
+--primary:#2a86e9;
+--secondary:#28a745;
+--dark:#343a40;
+--light:#74808b;
+}
+
+*{
+box-sizing:border-box;
+}
+
+html,body{
+height:100%;
+margin:0;
+}
+
+body{
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+
+background-image:url("./processo.webp");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+color:var(--dark);
+}
+
+/* HEADER */
+
+header{
+background:rgb(129,119,119);
+padding:10px 5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.logo-area{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo-area img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo-text{
+font-size:1.3rem;
+font-weight:bold;
+color:#0fd83e;
+}
+
+/* BANNER */
+
+.hero{
+background:url("./log-xepa.jpg");
+background-size:cover;
+background-position:center;
+color:white;
+text-align:center;
+padding:120px 20px;
+}
+
+/* CONTAINER */
+
+.container{
+padding:40px 5%;
+}
+
+/* GRID */
+
+.grid-produtos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-info{
+padding:20px;
+text-align:center;
+}
+
+.card-info h3{
+margin-bottom:10px;
+font-size:18px;
+}
+
+.price{
+color:var(--primary);
+font-size:22px;
+font-weight:bold;
+display:block;
+margin-bottom:15px;
+}
+
+/* BOTÃO WHATSAPP */
+
+.btn-whatsapp{
+background:#25d366;
+color:white;
+text-decoration:none;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:12px;
+border-radius:8px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-whatsapp i{
+margin-right:10px;
+}
+
+.btn-whatsapp:hover{
+background:#128c7e;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:var(--dark);
+color:white;
+margin-top:40px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width:768px){
+
+.hero{
+    background-image: url("./log-xepa.jpg");
+    background-size: contain; /* mostra a imagem completa */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width:100%;
+    height:60vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background-color:#00000033;
+}
+.logo-text{
+font-size:1rem;
+}
+
+.card img{
+height:180px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo-area">
+
+<img src="./log-xepa.jpg">
+
+<div class="logo-text">
+Cachaça da Xepa 100% artesanal 
+</div>
+
+</div>
+
+</header>
+
+<section class="hero"></section>
+
+<div class="container">
+
+<div class="grid-produtos" id="vitrine"></div>
+
+</div>
+
+<footer>
+<p>A Cachaça da Xepa é produzida de forma artesanal, respeitando o verdadeiro processo tradicional da cachaça brasileira. 
+Tudo começa com a seleção da cana-de-açúcar fresca, que é moída para extrair o caldo puro. 
+Em seguida, o caldo passa pelo processo de fermentação natural, onde os açúcares se transformam em álcool. 
+Após essa etapa, a bebida é destilada cuidadosamente em alambique, garantindo sabor marcante, aroma suave e alta qualidade.
+Cada etapa é feita com dedicação e tradição, resultando em uma cachaça autêntica, que valoriza o sabor da cultura nordestina e o prazer de apreciar uma boa bebida 100% artesanal. Beba com moderação. <p>&copy; 2026 Desenvolvido por Pascoal Fernandes</p></p>
+</footer>
+
+<script>
+
+const SEU_TELEFONE="5583996750737";
+
+const produtos=[
+
+{
+id:1,
+nome:"Cachaça Ceistal / Umburana  275 ml",
+preco:"R$ 0,00",
+imagem:"./top.jpg"
+},
+
+{
+id:2,
+nome:"Cachaça Ceistal / Umburana 1 lito",
+preco:"R$ 0,00",
+imagem:"./1p.jpg"
+},
+
+/*{
+id:3,
+nome:"Xepa Top 1 litro",
+preco:"R$ 0,00",
+imagem:"./2p.jpg"
+},
+
+{
+id:4,
+nome:"Xepa Nossa 275 ml",
+preco:"R$ 0,00",
+imagem:"./3p.jpg"
+},
+
+{
+id:5,
+nome:"Cachaça sabor hortelã 275 ml",
+preco:"R$ 0,00",
+imagem:"./top.jpg"
+},
+
+{
+id:6,
+nome:"Xepa Elite 1 litro",
+preco:"R$ 0,00",
+imagem:"./1p.jpg"
+},
+
+{
+id:7,
+nome:"Xepa Top 1 litro",
+preco:"R$ 0,00",
+imagem:"./2p.jpg"
+},
+
+{
+id:8,
+nome:"Xepa Nossa 275 ml",
+preco:"R$ 0,00",
+imagem:"./3p.jpg"
+},*/
+
+];
+
+function renderizarProdutos(){
+
+const vitrine=document.getElementById("vitrine");
+
+produtos.forEach(produto=>{
+
+const mensagem=encodeURIComponent(
+`Olá! Gostaria de comprar: ${produto.nome}`
+);
+
+const linkWhatsapp=
+`https://wa.me/${SEU_TELEFONE}?text=${mensagem}`;
+
+vitrine.innerHTML+=`
+
+<div class="card">
+
+<img src="${produto.imagem}">
+
+<div class="card-info">
+
+<h3>${produto.nome}</h3>
+
+<span class="price">${produto.preco}</span>
+
+<a href="${linkWhatsapp}" target="_blank" class="btn-whatsapp">
+
+<i class="fab fa-whatsapp"></i>
+Comprar
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+renderizarProdutos();
+
+</script>
+
+</body>
+</html>
